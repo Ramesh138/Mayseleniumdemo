@@ -1,5 +1,7 @@
 package com.seleniumprograms.basics;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -12,48 +14,40 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 public class Fluientwait {
-	
+
 	public static void main(String[] args) {
-		
-		
+
 		WebDriver driver;
-		System.setProperty("webdriver.chrome.driver",
-				".//driver//chromedriver.exe");
-		driver = new ChromeDriver(); 
-		
+		System.setProperty("webdriver.chrome.driver", ".//driver//chromedriver.exe");
+		driver = new ChromeDriver();
+
 		String eTitle = "Demo Guru99 Page";
-		String aTitle = "" ;
+		String aTitle = "";
 		driver = new ChromeDriver();
 		// launch Chrome and redirect it to the Base URL
-		driver.get("http://demo.guru99.com/test/guru99home/" );
-		//Maximizes the browser window
-		driver.manage().window().maximize() ;
-		//get the actual value of the title
-		aTitle = driver.getTitle();
-		//compare the actual title with the expected title
-		if (aTitle.contentEquals(eTitle))
-		{
-		System.out.println( "Test Passed") ;
-		}
-		else {
-		System.out.println( "Test Failed" );
-			}
 		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		driver.get("http://demo.guru99.com/v1/");
+	
+		driver.manage().window().maximize();
+		System.out.println(dtf.format(now));
 		@SuppressWarnings("deprecation")
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)							
-				.withTimeout(30, TimeUnit.SECONDS) 			
-				.pollingEvery(5, TimeUnit.SECONDS) 			
-				.ignoring(NoSuchElementException.class);
-		WebElement clickseleniumlink = wait.until(new Function<WebDriver, WebElement>(){
-		
-			public WebElement apply(WebDriver driver ) {
-				return driver.findElement(By.xpath("/html/body/div[1]/section/div[2]/div/div[1]/div/div[1]/div/div/div/div[2]/div[2]/div/div/div/div/div[1]/div/div/a/i"));
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+		.withTimeout(10, TimeUnit.SECONDS)
+		.pollingEvery(5, TimeUnit.SECONDS)
+		.ignoring(NoSuchElementException.class);
+		WebElement clickseleniumlink = wait.until(new Function<WebDriver, WebElement>() {
+			
+			public WebElement apply(WebDriver driver) {
+				System.out.println(dtf.format(now));
+				System.out.println(" i am in");
+				return driver.findElement(By.xpath(".//input[@name='uid']"));
 			}
 		});
-		//click on the selenium link
-		clickseleniumlink.click();
-		//close~ browser
-		driver.close() ;
-		}
+		// click on the selenium link
+		clickseleniumlink.sendKeys("Rames");
+		// close~ browser
+		driver.quit();
 	}
-
+}

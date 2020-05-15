@@ -1,7 +1,10 @@
 package com.seleniumprograms.basics;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,24 +15,37 @@ public static void main(String[] args) {
 	System.setProperty("webdriver.chrome.driver",
 			".//driver//chromedriver.exe");
 	driver = new ChromeDriver(); 
-	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS) ;
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+	   LocalDateTime now = LocalDateTime.now();  
+	   System.out.println(dtf.format(now));  
+	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+	
 	String eTitle = "Demo Guru99 Page";
 	String aTitle = "" ;
-	// launch Chrome and redirect it to the Base URL
+	
 	driver.get("http://demo.guru99.com/test/guru99home/" );
-	//Maximizes the browser window
+	
 	driver.manage().window().maximize() ;
-	//get the actual value of the title
+	
 	aTitle = driver.getTitle();
-	//compare the actual title with the expected title
+	
 	if (aTitle.equals(eTitle))
 	{
 	System.out.println( "Test Passed") ;
 	}
+	
 	else {
 	System.out.println( "Test Failed" );
 	}
-	//close browser
+	
+	System.out.println(dtf.format(now)); 
+	try {
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+		driver.findElement(By.xpath("gcgh")).click();
+	} catch (Exception e) {
+		System.out.println(dtf.format(now)); 
+	}
+	
 	driver.quit();
 }
 }
