@@ -12,10 +12,9 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExplicitWait {
-
+	static WebDriver driver = null;
 	public static void main(String[] args) {
 
-		WebDriver driver = null;
 		System.setProperty("webdriver.chrome.driver", ".//driver//chromedriver.exe");
 		driver = new ChromeDriver();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -31,7 +30,7 @@ public class ExplicitWait {
 		
 		WebDriverWait wait = new WebDriverWait(driver,60);
 		
-		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(".//*[@type='submit']"))));
+		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(".//*[@type='sumit']"))));
 		
 		System.out.println(dtf.format(now));
 		
