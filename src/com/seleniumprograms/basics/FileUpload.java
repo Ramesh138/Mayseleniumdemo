@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Alerts {
+public class FileUpload {
 
 	static WebDriver driver;
 
@@ -23,26 +23,8 @@ public class Alerts {
 		
 		Thread.sleep(2000);
 		
-		driver.findElement(By.name("prompt")).click();
+		driver.findElement(By.name("upload")).sendKeys("C:\\Users\\z011615\\OneDrive - Alliance\\Desktop\\sdsad\\ascsc.rtf");
 		
-		WebDriverWait wait = new WebDriverWait(driver,60);
-		
-		//Wait for the alert to be displayed and store it in a variable
-		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
-		Thread.sleep(2000);
-		//Type your message
-		alert.sendKeys("Selenium");
-
-		//Press the OK button
-		alert.accept();
-		
-		Thread.sleep(2000);
-		
-		
-		
-		
-		
-	
 		driver.quit();
 		
 	}

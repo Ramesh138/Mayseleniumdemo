@@ -32,11 +32,12 @@ public class Fluientwait {
 	
 		driver.manage().window().maximize();
 		System.out.println(dtf.format(now));
-		@SuppressWarnings("deprecation")
+		
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
-		.withTimeout(10, TimeUnit.SECONDS)
+		.withTimeout(10,TimeUnit.SECONDS)
 		.pollingEvery(5, TimeUnit.SECONDS)
 		.ignoring(NoSuchElementException.class);
+		
 		WebElement clickseleniumlink = wait.until(new Function<WebDriver, WebElement>() {
 			
 			public WebElement apply(WebDriver driver) {
