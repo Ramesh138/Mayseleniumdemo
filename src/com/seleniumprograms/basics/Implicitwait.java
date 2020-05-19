@@ -30,7 +30,7 @@ public class Implicitwait {
 	}
 
 	public void clickdropdown() {
-		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		driver.findElement(By.linkText("Dropdown")).click();
 	}
 	
