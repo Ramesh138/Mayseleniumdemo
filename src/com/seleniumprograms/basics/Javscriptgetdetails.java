@@ -1,4 +1,4 @@
-package com.seleniumdemo.javascript;
+package com.seleniumprograms.basics;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Javascriptclick {
+public class Javscriptgetdetails {
 	static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -21,35 +21,36 @@ public class Javascriptclick {
 
 		driver.manage().window().maximize();
 
-		driver.navigate().to("http://demo.guru99.com/V4/");
-
+		driver.get("http://the-internet.herokuapp.com/");
 
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 
-			
-	        WebElement button =driver.findElement(By.name("btnLogin"));			
-	        		
-	        //Login to Guru99 		
-	        driver.findElement(By.name("uid")).sendKeys("mngr34926");					
-	        driver.findElement(By.name("password")).sendKeys("amUpenu");					
-	        		
+		Object obj1=js.executeScript("return document.domain");
+		
+		
+		
+		System.out.println(obj1);
+			// js.executeScript("window.location = 'http://demo.guru99.com/'");
+		
 			/*
-			 * js.executeScript("return document.getElementById('btnLogin').click();");
+			 * Object obj=js.executeScript("return document.readyState");
 			 * 
-			 * js.executeScript("return document.getElementByName('uid').sendKeys(\"mngr34926\");"
-			 * );
+			 * System.out.println(obj);
 			 */
-	        
-	        //Perform Click on LOGIN button using JavascriptExecutor		
-	        js.executeScript("arguments[0].click();", button);
-	        
-	        
-			Thread.sleep(1000);
+			
+			/*
+			 * Object value=js.executeScript("return document.title");
+			 * 
+			 * System.out.println(value);
+			 */
+			
+			
+			Thread.sleep(2000);
 			driver.quit();
 
 		} catch (Exception e) {
-			
+
 			System.out.println("error");
 			driver.quit();
 		}

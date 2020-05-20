@@ -13,13 +13,10 @@ public class Frame {
 	public static void main(String[] args) throws Exception {
 		// set the geckodriver.exe property
 		System.setProperty("webdriver.chrome.driver", ".//driver//chromedriver.exe");
-
 		driver = new ChromeDriver();
-
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	
 		driver.get("https://chercher.tech/practice/frames");
 		

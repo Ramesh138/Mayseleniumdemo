@@ -1,4 +1,4 @@
-package com.seleniumdemo.javascript;
+package com.seleniumprograms.basics;
 
 public interface Webelemetinterface {
 	

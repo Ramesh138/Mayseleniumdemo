@@ -1,4 +1,4 @@
-package com.seleniumdemo.javascript;
+package com.seleniumprograms.basics;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Scrollmaxandmin {
+public class Scrolltoparticularelement {
 	static WebDriver driver;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -23,28 +23,27 @@ public class Scrollmaxandmin {
 
 		driver.get("http://the-internet.herokuapp.com/");
 
-
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			
-			
-			 
+
+			Thread.sleep(2000);
+
+			WebElement Element = driver.findElement(By.linkText("Redirect Link"));
+
+			// This will scroll the page till the element is found
+			js.executeScript("arguments[0].scrollIntoView();", Element);
 			Thread.sleep(2000);
 			
-		//	js.executeScript("return window.scrollMaxY");
-
-			// get the maximum scroll distance Vertically
-			Object verticalScrollBar = js.executeScript("return window.scrollMaxY");
+			String val=Element.getText();
 			
-			// get the maximum scroll distance Horizontally
-			Object horizontalScrollBar = js.executeScript("return window.scrollMaxX");
+			System.out.println(val);
+			//js.executeScript("arguments[0].click();", Element);
 
-			
 			Thread.sleep(2000);
 			driver.quit();
 
 		} catch (Exception e) {
-			
+
 			System.out.println("error");
 			driver.quit();
 		}
