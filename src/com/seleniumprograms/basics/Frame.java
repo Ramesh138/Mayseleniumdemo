@@ -1,4 +1,4 @@
-package com.seleniumdemo.javascript;
+package com.seleniumprograms.basics;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +23,8 @@ public class Frame {
 		WebElement frame1 = driver.findElement(By.id("frame1"));
 	
 		driver.switchTo().frame(frame1);
+		
+		driver.findElement(By.xpath("/html/body/input")).sendKeys("Ramesh");
 		
 		WebElement frame3 = driver.findElement(By.xpath("//iframe[@id='frame3']"));
 		

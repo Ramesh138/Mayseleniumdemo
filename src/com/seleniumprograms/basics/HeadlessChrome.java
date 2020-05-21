@@ -1,4 +1,4 @@
-package com.seleniumdemo.javascript;
+package com.seleniumprograms.basics;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

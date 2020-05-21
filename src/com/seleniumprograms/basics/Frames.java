@@ -1,4 +1,4 @@
-package com.seleniumdemo.javascript;
+package com.seleniumprograms.basics;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +17,6 @@ public class Frames {
 		System.setProperty("webdriver.chrome.driver", ".//driver//chromedriver.exe");
 		driver = new ChromeDriver();
 		
-
 		driver.manage().window().maximize();
 		
 		driver.get("http://jqueryui.com/draggable/");
@@ -31,6 +30,8 @@ public class Frames {
 		
 		//Comeout of the frame
 		driver.switchTo().defaultContent();
+		
+		driver.switchTo().frame(0);
 		
 		//CLick on droppable link
 		driver.findElement(By.linkText("Droppable")).click();
