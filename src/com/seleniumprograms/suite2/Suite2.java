@@ -1,5 +1,13 @@
-package com.seleniumprograms.testng;
+package com.seleniumprograms.suite2;
 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -10,10 +18,41 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestNGBasicAnotitations {
+public class Suite2 {
 
+	WebDriver driver;
 	@BeforeSuite
-	public void m8() {
+	public void m8() throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", ".//driver//chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://chercher.tech/practice/practice-pop-ups-selenium-webdriver");
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
+		Thread.sleep(2000);
+		
+		driver.findElement(By.name("prompt")).click();
+		
+		WebDriverWait wait = new WebDriverWait(driver,60);
+		
+		//Wait for the alert to be displayed and store it in a variable
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+		Thread.sleep(2000);
+		//Type your message
+		alert.sendKeys("Selenium");
+
+		//Press the OK button
+		alert.accept();
+		
+		Thread.sleep(2000);
+		
+		
+		
+		
+		
+	
+		driver.quit();
 		System.out.println(" i am before suite");
 	}
 
@@ -36,15 +75,15 @@ public class TestNGBasicAnotitations {
 	@Test(priority = 1)
 	public void t1() {
 		System.out.println(" I am Test 1");
-		throw new Error("i am dependent");
+		
 	}
 
-	@Test(priority = 2,enabled = false,timeOut = 500)
+	@Test(priority = 2)
 	public void t2() {
 		System.out.println(" I am Test 11");
 	}
 	
-	@Test(priority = 3 ,dependsOnMethods = {"t1"})
+	@Test(priority = 3 )
 	public void t3() {
 		System.out.println(" I am Test 12");
 	}

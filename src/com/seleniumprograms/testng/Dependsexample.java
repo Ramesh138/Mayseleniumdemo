@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestNGBasicAnotitations {
+public class Dependsexample {
 
 	@BeforeSuite
 	public void m8() {
@@ -39,12 +39,12 @@ public class TestNGBasicAnotitations {
 		throw new Error("i am dependent");
 	}
 
-	@Test(priority = 2,enabled = false,timeOut = 500)
+	@Test(priority = 2,dependsOnMethods = {"t1"})
 	public void t2() {
 		System.out.println(" I am Test 11");
 	}
 	
-	@Test(priority = 3 ,dependsOnMethods = {"t1"})
+	@Test(priority = 3 )
 	public void t3() {
 		System.out.println(" I am Test 12");
 	}

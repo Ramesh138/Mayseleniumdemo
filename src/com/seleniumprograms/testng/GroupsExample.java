@@ -10,8 +10,9 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestNGBasicAnotitations {
+public class GroupsExample {
 
+	
 	@BeforeSuite
 	public void m8() {
 		System.out.println(" i am before suite");
@@ -33,24 +34,33 @@ public class TestNGBasicAnotitations {
 		System.out.println(" I am Before method");
 	}
 
-	@Test(priority = 1)
+	@Test(groups = {"Smoketest"})
 	public void t1() {
 		System.out.println(" I am Test 1");
-		throw new Error("i am dependent");
 	}
 
-	@Test(priority = 2,enabled = false,timeOut = 500)
+	@Test(groups = {"Smoketest","Functional"})
 	public void t2() {
 		System.out.println(" I am Test 11");
 	}
 	
-	@Test(priority = 3 ,dependsOnMethods = {"t1"})
+	@Test(groups = {"Smoketest"})
 	public void t3() {
 		System.out.println(" I am Test 12");
 	}
 	
-	@Test(priority = 4)
+	@Test(groups = {"Regression"})
 	public void t4() {
+		System.out.println(" I am Test 13 ");
+	}
+	
+	@Test(groups = {"Functional"})
+	public void t5() {
+		System.out.println(" I am Test 12");
+	}
+	
+	@Test(groups = {"Regression"})
+	public void t6() {
 		System.out.println(" I am Test 13 ");
 	}
 	
