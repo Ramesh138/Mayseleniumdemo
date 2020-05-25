@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
-  <parameter name="lastname" value="ponneri"/>
-  <parameter name="firstname" value="Ramesh"/>
-  <parameter name="fullname" value="Ramesh poneri"/>
-  <parameter name="emailId" value="Ponneri@gmail.com"/>
-    <classes>
-      <class name="com.seleniumprograms.testng.Parameterization"/>
-     
-    </classes>
-  </test> <!-- Test -->
+  
+  <listeners>
+        <listener class-name="com.seleniumprograms.testng.RetryListenerClass"/>
+  </listeners>
+
+	<test name="Test1">
+	
+		<classes>
+			<class name="com.seleniumprograms.testng.Test1" />
+		</classes>
+	</test> <!-- Test -->
+	<test name="Test2">
+	
+		<classes>
+			<class name="com.seleniumprograms.testng.Test2" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="Test(failed)">
+  <listeners>
+    <listener class-name="com.seleniumprograms.testng.RetryListenerClass"/>
+  </listeners>
+  <test name="Test2(failed)">
     <classes>
-      <class name="com.seleniumprograms.testng.Getdataexample">
+      <class name="com.seleniumprograms.testng.Test2">
         <methods>
-          <include name="personalDetails"/>
+          <include name="test2"/>
         </methods>
-      </class> <!-- com.seleniumprograms.testng.Getdataexample -->
+      </class> <!-- com.seleniumprograms.testng.Test2 -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->
