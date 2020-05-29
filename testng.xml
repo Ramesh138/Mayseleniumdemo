@@ -18,4 +18,11 @@
 			<class name="com.seleniumprograms.testng.Test2" />
 		</classes>
 	</test> <!-- Test -->
+	
+	<test name="Test2">
+	
+		<classes>
+			<class name="com.seleniumprograms.testng.Test3" />
+		</classes>
+	</test> <!-- Test -->
 </suite> <!-- Suite -->

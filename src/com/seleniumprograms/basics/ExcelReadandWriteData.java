@@ -39,7 +39,7 @@ public class ExcelReadandWriteData {
 		for (int i = 0; i < rowcoun; i++) {
 			for (int j = 0; j < cellcoun; j++) {
 				XSSFCell value =xs.getRow(i).getCell(j);
-				System.out.println(value.getCellType().NUMERIC);
+				
 			}
 
 		}
