@@ -19,7 +19,7 @@
 		</classes>
 	</test> <!-- Test -->
 	
-	<test name="Test2">
+	<test name="Test3">
 	
 		<classes>
 			<class name="com.seleniumprograms.testng.Test3" />
