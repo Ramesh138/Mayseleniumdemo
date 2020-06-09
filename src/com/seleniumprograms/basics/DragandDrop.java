@@ -22,8 +22,10 @@ public class DragandDrop {
 		driver.manage().window().maximize();
 
 		Thread.sleep(2000);
+		
+		WebElement ele= driver.findElement(By.className("demo-frame"));
 
-		driver.switchTo().frame(driver.findElement(By.className("demo-frame")));
+		driver.switchTo().frame(ele);
 
 		WebElement xloc = driver.findElement(By.id("draggable"));
 		
@@ -31,6 +33,8 @@ public class DragandDrop {
 		WebElement yloc = driver.findElement(By.id("droppable"));
 
 		Actions action = new Actions(driver);
+	
+		
 		action.clickAndHold(xloc).moveToElement(yloc).release().build().perform();
 		Thread.sleep(10000);
 

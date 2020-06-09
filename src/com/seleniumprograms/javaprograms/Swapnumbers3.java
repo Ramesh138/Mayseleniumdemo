@@ -7,6 +7,14 @@ public class Swapnumbers3 {
 		int a=10;
 		int b=30;
 		
+		/*
+		 * int arr[]= {a,b};
+		 * 
+		 * a=arr[1];
+		 * 
+		 * b=arr[0];
+		 */
+		
 	
 		  a = a + b; 
 		  b = a - b; 
