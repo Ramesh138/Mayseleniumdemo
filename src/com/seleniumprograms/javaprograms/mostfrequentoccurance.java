@@ -25,8 +25,6 @@ public class mostfrequentoccurance {
 			
 		}
 		
-	
-		
 		int frequent=1;
 		
 		int elements=0;
@@ -44,16 +42,12 @@ public class mostfrequentoccurance {
 			}
 		}
 		
-		if(frequent>1) {
-			
+		if(frequent>1) {	
 			
 			System.out.println(" most frequent :"+elements);
 		}else {
-			
+			System.out.println(" all are unqie");
 		}
-		
-		
-		
 		
 	}
 
