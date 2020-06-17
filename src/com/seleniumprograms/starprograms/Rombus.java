@@ -21,11 +21,13 @@ public class Rombus {
 		
 		 for (int i= 0; i<= n-1 ; i++)
 		    {
+			 int space =n-2-i;
+			 
 		        for (int j=0; j<=i; j++)
 		        {
 		            System.out.print(" ");
 		        }
-		        for (int k=0; k<=n-2-i; k++)
+		        for (int k=0; k<=space; k++)
 		        {
 		            System.out.print("* ");
 		        }
